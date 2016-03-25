@@ -16,12 +16,14 @@ def thumbnails():
         if r.status_code==200:
             thumbnails=image_dem(url)
             obj={'error': 'null','data':{'Thumbnail':thumbnails},'message':'success'}
-            hold=jsonify(obj)
-            #return hold
+            json=jsonify(obj)
+            #Remove the comment below to return Json and comment the return render_template
+            #return json
             return render_template('view.html',thumbnails=thumbnails)
-        hold=jsonify({'error':"1",'data':{},'message':'failure'})
-        #return hold
-        return render_template('view.html',)
+        json=jsonify({'error':"1",'data':{},'message':'failure'})
+        #Remove the comment below to return Json and comment the return render_template
+        #return json
+        return render_template('view.html')
     else:
         return render_template('form.html')    
     
